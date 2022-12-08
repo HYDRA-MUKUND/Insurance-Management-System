@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "ApprovedAlertDialog";
+}
+
+<style>
+    body {
+        background-color: dimgrey;
+    }
+</style>
+
+
+<script>
+    window.onload = function () {
+               swal('Done !', '', 'success', { button: 'OK' })
+                   .then((value) => { window.location.href = '/Admin/AdminProfilePage' });
+            }
+
+</script>
+
+

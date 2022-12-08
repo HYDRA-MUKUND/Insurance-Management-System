@@ -1,0 +1,138 @@
+﻿
+@{
+    ViewBag.Title = "PensionPlans";
+}
+
+
+<style>
+
+    body {
+        background-color: darkgray;
+    }
+
+    hr {
+        color: ghostwhite;
+    }
+
+
+    h1 {
+        color: darkslateblue;
+        font-weight: bold;
+        font-family: 'Segoe UI',Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    option {
+        background-color: white;
+        color: black;
+    }
+
+    select {
+        /*        background-color: #22a344;
+    */ background-color: darkslateblue;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        color: white;
+        border-color: none;
+    }
+</style>
+
+<button class="btn btn-primary" style="margin-top:2rem;margin-bottom:1rem;margin-left:2rem;">
+    @Html.ActionLink("《 Go Back", "ChooseInsurance", new { area = "" }, new { @style = "font-size:14px; color:white;" })
+</button>
+
+<hr>
+<h1>Apply for Pension Plan</h1>
+<hr style="margin-bottom:3rem">
+
+
+
+<div style="border-radius: 1rem; box-shadow: 0px 7px 35px -4px black; background-color: white; margin: 1rem 30rem; padding: 2rem 0; ">
+    <form method="post" asp-action="PensionPlans" asp-controller="User" onsubmit="return pensionStartDateValidator()">
+
+        <div class="form-horizontal" style="margin-left:4rem">
+
+
+            <div class="form-group" style="margin-left:6rem;margin-top:2rem">
+                <div class="col-md-10">
+                    <label for="servent-type" class="form-label">Are you Government Servent : </label>
+                    <select name="servent-type" id="servent-type">
+                        <option value="Government Servent">Yes</option>
+                        <option value="Non-Government Servent" selected>No</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-left:7rem">
+
+                <label class="form-label" for="age"> Age</label>
+                <input type="number" id="age" name="age" class="form-control form-control-lg" required placeholder="Enter your age (years)" min="18" max="150" />
+
+            </div>
+
+            <div class="form-group" style="margin-left:7rem">
+
+                <label class="form-label" for="occupation"> Occupation</label>
+                <input type="text" id="occupation" name="occupation" class="form-control form-control-lg" required placeholder="Enter your occupation" minlength="2" />
+
+            </div>
+
+            <div class="form-group" style="margin-left:7rem">
+
+                <label class="form-label" for="monthlyIncome">Monthly Income</label>
+                <input type="number" id="monthlyIncome" name="monthlyIncome" class="form-control form-control-lg" required placeholder="Enter monthly income (Rs)" min="1000" max="100000000000" />
+
+            </div>
+
+
+            <div class="form-group" style="margin-left:7rem">
+
+                <label class="form-label" for="pensionStartsFrom">Pension Starts From  </label>
+                <input type="date" id="pensionStartsFrom" name="pensionStartsFrom" class="form-control form-control-lg" required />
+
+            </div>
+
+
+            <div class="form-group" style="margin-left:4.5rem">
+                <div class="col-md-offset-2 col-md-10" style="margin-left:1rem;">
+                    <input type="submit" value="Submit" class="btn btn-success btn-lg btn-block" />
+                </div>
+            </div>
+            <p id="pensionstartdate-validation" style="color:#fa2b2b;font-size:1.4rem;font-weight:bold;margin-top:0.5rem;margin-left:4rem; display:none">Pension Start Date should be greater than Today's Date !</p>
+
+        </div>
+
+</form>
+</div>
+
+
+
+
+<script>
+
+    function pensionStartDateValidator() {
+
+        let pensionStartDate = document.getElementById('pensionStartsFrom').value;
+        document.getElementById('pensionstartdate-validation').style.display = 'none';
+
+        var today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        if (Date.parse(pensionStartDate) < today) {
+            document.getElementById('pensionstartdate-validation').style.display = 'block';
+            return false;
+        }
+
+        return true;
+
+    }
+
+</script>
+
+

@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+
+    .slogan {
+        margin-top: 16rem;
+        margin-left: 1rem;
+    }
+
+    h2 {
+        color: bisque;
+        font-weight: bold;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 4.5rem;
+    }
+
+    #buy-insurance {
+        margin-top: 1rem;
+        margin-left: 6rem;
+        padding:1rem 2rem;
+    }
+</style>
+
+
+<h2 class="slogan">Protecting you</h2>
+<h2>and your Family</h2>
+
+<button class="btn btn-danger btn-lg" id="buy-insurance" onclick="GetStarted()" type="button">Buy Insurance &raquo;</button>
+
+
+
+<script type="text/javascript">
+ function GetStarted() {
+window.location.href = "@Url.Action("LoginUser","LoginRegister")";
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div style="text-align:center;margin:2rem;">
+        <button type="submit" class="btn btn-dark btn-lg">
+            @Html.ActionLink("Get Started", "LoginUser", "LoginRegister")
+        </button>
+    </div>*@

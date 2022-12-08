@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InsuranceManagementSystemDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AutomobileInsurance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="VehicleType" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VehicleModel" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="VehicleNumber" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VehicleAge" Type="Int32" Nullable="false" />
+    <Property Name="PlanDuration" Type="Int32" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__Automobil__Custo__33D4B598" FromRole="AutomobileInsurance" ToRole="Customers" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MobileNumber" Type="Int64" Nullable="false" />
+    <Property Name="UserId" Type="Int32" />
+    <NavigationProperty Name="AutomobileInsurances" Relationship="Self.FK__Automobil__Custo__33D4B598" FromRole="Customers" ToRole="AutomobileInsurance" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Customers__UserI__2C3393D0" FromRole="Customers" ToRole="Users" />
+    <NavigationProperty Name="HealthInsurances" Relationship="Self.FK__HealthIns__Custo__31EC6D26" FromRole="Customers" ToRole="HealthInsurance" />
+    <NavigationProperty Name="HomeInsurances" Relationship="Self.FK__HomeInsur__Custo__35BCFE0A" FromRole="Customers" ToRole="HomeInsurance" />
+    <NavigationProperty Name="LifeInsurances" Relationship="Self.FK__LifeInsur__Custo__3B75D760" FromRole="Customers" ToRole="LifeInsurance" />
+    <NavigationProperty Name="PensionPlans" Relationship="Self.FK__PensionPl__Custo__398D8EEE" FromRole="Customers" ToRole="PensionPlans" />
+    <NavigationProperty Name="Purchaseds" Relationship="Self.FK__Purchased__Custo__300424B4" FromRole="Customers" ToRole="Purchased" />
+    <NavigationProperty Name="TravelInsurances" Relationship="Self.FK__TravelIns__Custo__37A5467C" FromRole="Customers" ToRole="TravelInsurance" />
+  </EntityType>
+  <EntityType Name="HealthInsurance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="Age" Type="Int32" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HealthCondition" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="PlanDuration" Type="Int32" Nullable="false" />
+    <Property Name="InsuranceAmount" Type="Int64" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__HealthIns__Custo__31EC6D26" FromRole="HealthInsurance" ToRole="Customers" />
+  </EntityType>
+  <EntityType Name="HomeInsurance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="BuildingType" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FloorArea" Type="Int32" />
+    <Property Name="City" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HouseNumber" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Valuation" Type="Int64" Nullable="false" />
+    <Property Name="PlanDuration" Type="Int32" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__HomeInsur__Custo__35BCFE0A" FromRole="HomeInsurance" ToRole="Customers" />
+  </EntityType>
+  <EntityType Name="Insurance">
+    <Key>
+      <PropertyRef Name="InsuranceId" />
+    </Key>
+    <Property Name="InsuranceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InsuranceType" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SubType" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="FilterParameter" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Int64" />
+    <Property Name="YearlyPremium" Type="Int64" Nullable="false" />
+    <Property Name="InsuranceProvider" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ReleaseDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UserId" Type="Int32" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Insurance__UserI__29572725" FromRole="Insurances" ToRole="Users" />
+    <NavigationProperty Name="Purchaseds" Relationship="Self.FK__Purchased__Insur__2F10007B" FromRole="Insurances" ToRole="Purchased" />
+  </EntityType>
+  <EntityType Name="LifeInsurance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="Age" Type="Int32" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Occupation" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Plan_Duration" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HealthCondition" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PensionStartYear" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="InsuranceAmount" Type="Int64" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__LifeInsur__Custo__3B75D760" FromRole="LifeInsurance" ToRole="Customers" />
+  </EntityType>
+  <EntityType Name="PensionPlan">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="Age" Type="Int32" Nullable="false" />
+    <Property Name="Occupation" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MonthlyIncome" Type="Int64" Nullable="false" />
+    <Property Name="PensionStartYear" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PensionAmount" Type="Int64" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__PensionPl__Custo__398D8EEE" FromRole="PensionPlans" ToRole="Customers" />
+  </EntityType>
+  <EntityType Name="Purchased">
+    <Key>
+      <PropertyRef Name="PurchaseId" />
+    </Key>
+    <Property Name="PurchaseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateOfPurchase" Type="DateTime" Precision="0" />
+    <Property Name="ApprovalStatus" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="InsuranceId" Type="Int32" />
+    <Property Name="CustomerId" Type="Int32" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__Purchased__Custo__300424B4" FromRole="Purchased" ToRole="Customers" />
+    <NavigationProperty Name="Insurance" Relationship="Self.FK__Purchased__Insur__2F10007B" FromRole="Purchased" ToRole="Insurances" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="RoleName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__Users__RoleId__267ABA7A" FromRole="Roles" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="TravelInsurance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="Age" Type="Int32" Nullable="false" />
+    <Property Name="SourceCountry" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DestinationCountry" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="HealthCondition" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="InsuranceAmount" Type="Int64" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__TravelIns__Custo__37A5467C" FromRole="TravelInsurance" ToRole="Customers" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RegistrationDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CompanyName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="RoleId" Type="Int32" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK__Customers__UserI__2C3393D0" FromRole="Users" ToRole="Customers" />
+    <NavigationProperty Name="Insurances" Relationship="Self.FK__Insurance__UserI__29572725" FromRole="Users" ToRole="Insurances" />
+    <NavigationProperty Name="Role" Relationship="Self.FK__Users__RoleId__267ABA7A" FromRole="Users" ToRole="Roles" />
+  </EntityType>
+  <Association Name="FK__Automobil__Custo__33D4B598">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="AutomobileInsurance" Type="Self.AutomobileInsurance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="AutomobileInsurance">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Customers__UserI__2C3393D0">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Customers" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HealthIns__Custo__31EC6D26">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="HealthInsurance" Type="Self.HealthInsurance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="HealthInsurance">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HomeInsur__Custo__35BCFE0A">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="HomeInsurance" Type="Self.HomeInsurance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="HomeInsurance">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LifeInsur__Custo__3B75D760">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="LifeInsurance" Type="Self.LifeInsurance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="LifeInsurance">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PensionPl__Custo__398D8EEE">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="PensionPlans" Type="Self.PensionPlan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="PensionPlans">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Purchased__Custo__300424B4">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Purchased" Type="Self.Purchased" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="Purchased">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TravelIns__Custo__37A5467C">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="TravelInsurance" Type="Self.TravelInsurance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="TravelInsurance">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Insurance__UserI__29572725">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Insurances" Type="Self.Insurance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Insurances">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Purchased__Insur__2F10007B">
+    <End Role="Insurances" Type="Self.Insurance" Multiplicity="0..1" />
+    <End Role="Purchased" Type="Self.Purchased" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Insurances">
+        <PropertyRef Name="InsuranceId" />
+      </Principal>
+      <Dependent Role="Purchased">
+        <PropertyRef Name="InsuranceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__RoleId__267ABA7A">
+    <End Role="Roles" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="InsuranceManagementSystemDbEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AutomobileInsurances" EntityType="Self.AutomobileInsurance" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="HealthInsurances" EntityType="Self.HealthInsurance" />
+    <EntitySet Name="HomeInsurances" EntityType="Self.HomeInsurance" />
+    <EntitySet Name="Insurances" EntityType="Self.Insurance" />
+    <EntitySet Name="LifeInsurances" EntityType="Self.LifeInsurance" />
+    <EntitySet Name="PensionPlans" EntityType="Self.PensionPlan" />
+    <EntitySet Name="Purchaseds" EntityType="Self.Purchased" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="TravelInsurances" EntityType="Self.TravelInsurance" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK__Automobil__Custo__33D4B598" Association="Self.FK__Automobil__Custo__33D4B598">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="AutomobileInsurance" EntitySet="AutomobileInsurances" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Customers__UserI__2C3393D0" Association="Self.FK__Customers__UserI__2C3393D0">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HealthIns__Custo__31EC6D26" Association="Self.FK__HealthIns__Custo__31EC6D26">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="HealthInsurance" EntitySet="HealthInsurances" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HomeInsur__Custo__35BCFE0A" Association="Self.FK__HomeInsur__Custo__35BCFE0A">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="HomeInsurance" EntitySet="HomeInsurances" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LifeInsur__Custo__3B75D760" Association="Self.FK__LifeInsur__Custo__3B75D760">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="LifeInsurance" EntitySet="LifeInsurances" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PensionPl__Custo__398D8EEE" Association="Self.FK__PensionPl__Custo__398D8EEE">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="PensionPlans" EntitySet="PensionPlans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Purchased__Custo__300424B4" Association="Self.FK__Purchased__Custo__300424B4">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Purchased" EntitySet="Purchaseds" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TravelIns__Custo__37A5467C" Association="Self.FK__TravelIns__Custo__37A5467C">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="TravelInsurance" EntitySet="TravelInsurances" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Insurance__UserI__29572725" Association="Self.FK__Insurance__UserI__29572725">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Insurances" EntitySet="Insurances" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Purchased__Insur__2F10007B" Association="Self.FK__Purchased__Insur__2F10007B">
+      <End Role="Insurances" EntitySet="Insurances" />
+      <End Role="Purchased" EntitySet="Purchaseds" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__RoleId__267ABA7A" Association="Self.FK__Users__RoleId__267ABA7A">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <FunctionImport Name="sp_getAllVerifiedRequests" ReturnType="Collection(InsuranceManagementSystemDbModel.sp_getAllVerifiedRequests_Result)" />
+    <FunctionImport Name="sp_getHomeInsurancePendingRequests" ReturnType="Collection(InsuranceManagementSystemDbModel.sp_getHomeInsurancePendingRequests_Result)" />
+    <FunctionImport Name="sp_getYourInsurances" ReturnType="Collection(InsuranceManagementSystemDbModel.sp_getYourInsurances_Result)">
+      <Parameter Name="CurrentUserId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_getAutomobileInsurancePendingRequests" ReturnType="Collection(InsuranceManagementSystemDbModel.sp_getAutomobileInsurancePendingRequests_Result)" />
+    <FunctionImport Name="sp_getTravelInsurancePendingRequest" ReturnType="Collection(InsuranceManagementSystemDbModel.sp_getTravelInsurancePendingRequest_Result)" />
+    <FunctionImport Name="sp_getHealthInsurancePendingRequest" ReturnType="Collection(InsuranceManagementSystemDbModel.sp_getHealthInsurancePendingRequest_Result)" />
+    <FunctionImport Name="sp_getPensionPlanPendingRequest" ReturnType="Collection(InsuranceManagementSystemDbModel.sp_getPensionPlanPendingRequest_Result)" />
+  </EntityContainer>
+  <ComplexType Name="sp_getAllVerifiedRequests_Result">
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="60" />
+    <Property Type="Int64" Name="MobileNumber" Nullable="false" />
+    <Property Type="String" Name="InsuranceType" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="SubType" Nullable="true" MaxLength="60" />
+    <Property Type="DateTime" Name="DateOfPurchase" Nullable="true" />
+    <Property Type="String" Name="ApprovalStatus" Nullable="true" MaxLength="60" />
+  </ComplexType>
+  <ComplexType Name="sp_getHomeInsurancePendingRequests_Result">
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="60" />
+    <Property Type="Int64" Name="MobileNumber" Nullable="false" />
+    <Property Type="Int32" Name="PurchaseId" Nullable="false" />
+    <Property Type="String" Name="InsuranceType" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="SubType" Nullable="true" MaxLength="60" />
+    <Property Type="DateTime" Name="DateOfPurchase" Nullable="true" />
+    <Property Type="Int64" Name="Valuation" Nullable="false" />
+    <Property Type="String" Name="City" Nullable="false" MaxLength="60" />
+    <Property Type="Int32" Name="PlanDuration" Nullable="false" />
+    <Property Type="String" Name="HouseNumber" Nullable="false" MaxLength="60" />
+    <Property Type="Int32" Name="FloorArea" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_getYourInsurances_Result">
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="60" />
+    <Property Type="Int64" Name="MobileNumber" Nullable="false" />
+    <Property Type="String" Name="InsuranceType" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="SubType" Nullable="true" MaxLength="60" />
+    <Property Type="DateTime" Name="DateOfPurchase" Nullable="true" />
+    <Property Type="String" Name="ApprovalStatus" Nullable="true" MaxLength="60" />
+  </ComplexType>
+  <ComplexType Name="sp_getAutomobileInsurancePendingRequests_Result">
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="60" />
+    <Property Type="Int64" Name="MobileNumber" Nullable="false" />
+    <Property Type="Int32" Name="PurchaseId" Nullable="false" />
+    <Property Type="String" Name="InsuranceType" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="SubType" Nullable="true" MaxLength="60" />
+    <Property Type="DateTime" Name="DateOfPurchase" Nullable="true" />
+    <Property Type="String" Name="VehicleModel" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="VehicleAge" Nullable="false" />
+    <Property Type="String" Name="VehicleNumber" Nullable="false" MaxLength="60" />
+    <Property Type="Int32" Name="PlanDuration" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_getTravelInsurancePendingRequest_Result">
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="60" />
+    <Property Type="Int64" Name="MobileNumber" Nullable="false" />
+    <Property Type="Int32" Name="PurchaseId" Nullable="false" />
+    <Property Type="String" Name="InsuranceType" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="SubType" Nullable="true" MaxLength="60" />
+    <Property Type="DateTime" Name="DateOfPurchase" Nullable="true" />
+    <Property Type="String" Name="SourceCountry" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="DestinationCountry" Nullable="false" MaxLength="60" />
+    <Property Type="Int32" Name="Age" Nullable="false" />
+    <Property Type="String" Name="HealthCondition" Nullable="true" MaxLength="60" />
+    <Property Type="DateTime" Name="StartDate" Nullable="false" />
+    <Property Type="DateTime" Name="EndDate" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_getHealthInsurancePendingRequest_Result">
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="60" />
+    <Property Type="Int64" Name="MobileNumber" Nullable="false" />
+    <Property Type="Int32" Name="PurchaseId" Nullable="false" />
+    <Property Type="String" Name="InsuranceType" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="SubType" Nullable="true" MaxLength="60" />
+    <Property Type="DateTime" Name="DateOfPurchase" Nullable="true" />
+    <Property Type="String" Name="HealthCondition" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="Gender" Nullable="false" MaxLength="60" />
+    <Property Type="Int32" Name="PlanDuration" Nullable="false" />
+    <Property Type="Int32" Name="Age" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_getPensionPlanPendingRequest_Result">
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="60" />
+    <Property Type="Int64" Name="MobileNumber" Nullable="false" />
+    <Property Type="Int32" Name="PurchaseId" Nullable="false" />
+    <Property Type="String" Name="InsuranceType" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="SubType" Nullable="true" MaxLength="60" />
+    <Property Type="DateTime" Name="DateOfPurchase" Nullable="true" />
+    <Property Type="Int64" Name="MonthlyIncome" Nullable="false" />
+    <Property Type="String" Name="Occupation" Nullable="false" MaxLength="60" />
+    <Property Type="DateTime" Name="PensionStartYear" Nullable="false" />
+    <Property Type="Int32" Name="Age" Nullable="false" />
+    <Property Type="Int64" Name="PensionAmount" Nullable="true" />
+  </ComplexType>
+</Schema>

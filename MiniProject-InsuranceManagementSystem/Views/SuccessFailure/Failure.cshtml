@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Failure";
+}
+
+<style>
+    body {
+        background-color: dimgrey;
+    }
+</style>
+
+
+<script>
+    window.onload = function () {
+               swal('Something went wrong !', '', 'error', { button: 'OK' })
+                   .then((value) => { window.location.href = '/LoginRegister/LoginUser' });
+            }
+
+</script>
+
+

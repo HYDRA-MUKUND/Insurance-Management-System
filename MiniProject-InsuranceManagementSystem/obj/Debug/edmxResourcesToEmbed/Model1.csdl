@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InsuranceManagementSystemDbModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="InsuranceManagementSystemDbEntities2" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_getAllVerifiedRequests" ReturnType="Collection(InsuranceManagementSystemDbModel1.sp_getAllVerifiedRequests_Result)" />
+    <FunctionImport Name="sp_getHomeInsurancePendingRequests" ReturnType="Collection(InsuranceManagementSystemDbModel1.sp_getHomeInsurancePendingRequests_Result)" />
+    <FunctionImport Name="sp_getYourInsurances" ReturnType="Collection(InsuranceManagementSystemDbModel1.sp_getYourInsurances_Result)">
+      <Parameter Name="CurrentUserId" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_getAllVerifiedRequests_Result">
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="60" />
+    <Property Type="Int64" Name="MobileNumber" Nullable="false" />
+    <Property Type="String" Name="InsuranceType" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="SubType" Nullable="true" MaxLength="60" />
+    <Property Type="DateTime" Name="DateOfPurchase" Nullable="true" />
+    <Property Type="String" Name="ApprovalStatus" Nullable="true" MaxLength="60" />
+  </ComplexType>
+  <ComplexType Name="sp_getHomeInsurancePendingRequests_Result">
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="60" />
+    <Property Type="Int64" Name="MobileNumber" Nullable="false" />
+    <Property Type="Int32" Name="PurchaseId" Nullable="false" />
+    <Property Type="String" Name="InsuranceType" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="SubType" Nullable="true" MaxLength="60" />
+    <Property Type="DateTime" Name="DateOfPurchase" Nullable="true" />
+    <Property Type="Int64" Name="Valuation" Nullable="false" />
+    <Property Type="String" Name="City" Nullable="false" MaxLength="60" />
+    <Property Type="Int32" Name="PlanDuration" Nullable="false" />
+    <Property Type="String" Name="HouseNumber" Nullable="false" MaxLength="60" />
+    <Property Type="Int32" Name="FloorArea" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_getYourInsurances_Result">
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="60" />
+    <Property Type="Int64" Name="MobileNumber" Nullable="false" />
+    <Property Type="String" Name="InsuranceType" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="SubType" Nullable="true" MaxLength="60" />
+    <Property Type="DateTime" Name="DateOfPurchase" Nullable="true" />
+    <Property Type="String" Name="ApprovalStatus" Nullable="true" MaxLength="60" />
+  </ComplexType>
+</Schema>

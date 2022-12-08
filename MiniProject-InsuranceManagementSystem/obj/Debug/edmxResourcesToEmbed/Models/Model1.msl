@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="InsuranceManagementSystemDbModelStoreContainer" CdmEntityContainer="InsuranceManagementSystemDbEntities1">
+    <EntitySetMapping Name="AutomobileInsurances">
+      <EntityTypeMapping TypeName="InsuranceManagementSystemDbModel.AutomobileInsurance">
+        <MappingFragment StoreEntitySet="AutomobileInsurance">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
+          <ScalarProperty Name="VehicleModel" ColumnName="VehicleModel" />
+          <ScalarProperty Name="VehicleNumber" ColumnName="VehicleNumber" />
+          <ScalarProperty Name="VehicleAge" ColumnName="VehicleAge" />
+          <ScalarProperty Name="PlanDuration" ColumnName="PlanDuration" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="InsuranceManagementSystemDbModel.Customer">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HealthInsurances">
+      <EntityTypeMapping TypeName="InsuranceManagementSystemDbModel.HealthInsurance">
+        <MappingFragment StoreEntitySet="HealthInsurance">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="HealthCondition" ColumnName="HealthCondition" />
+          <ScalarProperty Name="PlanDuration" ColumnName="PlanDuration" />
+          <ScalarProperty Name="InsuranceAmount" ColumnName="InsuranceAmount" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HomeInsurances">
+      <EntityTypeMapping TypeName="InsuranceManagementSystemDbModel.HomeInsurance">
+        <MappingFragment StoreEntitySet="HomeInsurance">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="BuildingType" ColumnName="BuildingType" />
+          <ScalarProperty Name="FloorArea" ColumnName="FloorArea" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="HouseNumber" ColumnName="HouseNumber" />
+          <ScalarProperty Name="Valuation" ColumnName="Valuation" />
+          <ScalarProperty Name="PlanDuration" ColumnName="PlanDuration" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Insurances">
+      <EntityTypeMapping TypeName="InsuranceManagementSystemDbModel.Insurance">
+        <MappingFragment StoreEntitySet="Insurances">
+          <ScalarProperty Name="InsuranceId" ColumnName="InsuranceId" />
+          <ScalarProperty Name="InsuranceType" ColumnName="InsuranceType" />
+          <ScalarProperty Name="SubType" ColumnName="SubType" />
+          <ScalarProperty Name="FilterParameter" ColumnName="FilterParameter" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="YearlyPremium" ColumnName="YearlyPremium" />
+          <ScalarProperty Name="InsuranceProvider" ColumnName="InsuranceProvider" />
+          <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LifeInsurances">
+      <EntityTypeMapping TypeName="InsuranceManagementSystemDbModel.LifeInsurance">
+        <MappingFragment StoreEntitySet="LifeInsurance">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+          <ScalarProperty Name="Plan_Duration" ColumnName="Plan_Duration" />
+          <ScalarProperty Name="HealthCondition" ColumnName="HealthCondition" />
+          <ScalarProperty Name="PensionStartYear" ColumnName="PensionStartYear" />
+          <ScalarProperty Name="InsuranceAmount" ColumnName="InsuranceAmount" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PensionPlans">
+      <EntityTypeMapping TypeName="InsuranceManagementSystemDbModel.PensionPlan">
+        <MappingFragment StoreEntitySet="PensionPlans">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+          <ScalarProperty Name="MonthlyIncome" ColumnName="MonthlyIncome" />
+          <ScalarProperty Name="PensionStartYear" ColumnName="PensionStartYear" />
+          <ScalarProperty Name="PensionAmount" ColumnName="PensionAmount" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchaseds">
+      <EntityTypeMapping TypeName="InsuranceManagementSystemDbModel.Purchased">
+        <MappingFragment StoreEntitySet="Purchased">
+          <ScalarProperty Name="PurchaseId" ColumnName="PurchaseId" />
+          <ScalarProperty Name="DateOfPurchase" ColumnName="DateOfPurchase" />
+          <ScalarProperty Name="ApprovalStatus" ColumnName="ApprovalStatus" />
+          <ScalarProperty Name="InsuranceId" ColumnName="InsuranceId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="InsuranceManagementSystemDbModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TravelInsurances">
+      <EntityTypeMapping TypeName="InsuranceManagementSystemDbModel.TravelInsurance">
+        <MappingFragment StoreEntitySet="TravelInsurance">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="SourceCountry" ColumnName="SourceCountry" />
+          <ScalarProperty Name="DestinationCountry" ColumnName="DestinationCountry" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="HealthCondition" ColumnName="HealthCondition" />
+          <ScalarProperty Name="InsuranceAmount" ColumnName="InsuranceAmount" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="InsuranceManagementSystemDbModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_getAllVerifiedRequests" FunctionName="InsuranceManagementSystemDbModel.Store.sp_getAllVerifiedRequests">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="InsuranceManagementSystemDbModel.sp_getAllVerifiedRequests_Result">
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="InsuranceType" ColumnName="InsuranceType" />
+          <ScalarProperty Name="SubType" ColumnName="SubType" />
+          <ScalarProperty Name="DateOfPurchase" ColumnName="DateOfPurchase" />
+          <ScalarProperty Name="ApprovalStatus" ColumnName="ApprovalStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getHomeInsurancePendingRequests" FunctionName="InsuranceManagementSystemDbModel.Store.sp_getHomeInsurancePendingRequests">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="InsuranceManagementSystemDbModel.sp_getHomeInsurancePendingRequests_Result">
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="PurchaseId" ColumnName="PurchaseId" />
+          <ScalarProperty Name="InsuranceType" ColumnName="InsuranceType" />
+          <ScalarProperty Name="SubType" ColumnName="SubType" />
+          <ScalarProperty Name="DateOfPurchase" ColumnName="DateOfPurchase" />
+          <ScalarProperty Name="Valuation" ColumnName="Valuation" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="PlanDuration" ColumnName="PlanDuration" />
+          <ScalarProperty Name="HouseNumber" ColumnName="HouseNumber" />
+          <ScalarProperty Name="FloorArea" ColumnName="FloorArea" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getYourInsurances" FunctionName="InsuranceManagementSystemDbModel.Store.sp_getYourInsurances">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="InsuranceManagementSystemDbModel.sp_getYourInsurances_Result">
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="InsuranceType" ColumnName="InsuranceType" />
+          <ScalarProperty Name="SubType" ColumnName="SubType" />
+          <ScalarProperty Name="DateOfPurchase" ColumnName="DateOfPurchase" />
+          <ScalarProperty Name="ApprovalStatus" ColumnName="ApprovalStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getAutomobileInsurancePendingRequests" FunctionName="InsuranceManagementSystemDbModel.Store.sp_getAutomobileInsurancePendingRequests">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="InsuranceManagementSystemDbModel.sp_getAutomobileInsurancePendingRequests_Result">
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="PurchaseId" ColumnName="PurchaseId" />
+          <ScalarProperty Name="InsuranceType" ColumnName="InsuranceType" />
+          <ScalarProperty Name="SubType" ColumnName="SubType" />
+          <ScalarProperty Name="DateOfPurchase" ColumnName="DateOfPurchase" />
+          <ScalarProperty Name="VehicleModel" ColumnName="VehicleModel" />
+          <ScalarProperty Name="VehicleAge" ColumnName="VehicleAge" />
+          <ScalarProperty Name="VehicleNumber" ColumnName="VehicleNumber" />
+          <ScalarProperty Name="PlanDuration" ColumnName="PlanDuration" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getTravelInsurancePendingRequest" FunctionName="InsuranceManagementSystemDbModel.Store.sp_getTravelInsurancePendingRequest">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="InsuranceManagementSystemDbModel.sp_getTravelInsurancePendingRequest_Result">
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="PurchaseId" ColumnName="PurchaseId" />
+          <ScalarProperty Name="InsuranceType" ColumnName="InsuranceType" />
+          <ScalarProperty Name="SubType" ColumnName="SubType" />
+          <ScalarProperty Name="DateOfPurchase" ColumnName="DateOfPurchase" />
+          <ScalarProperty Name="SourceCountry" ColumnName="SourceCountry" />
+          <ScalarProperty Name="DestinationCountry" ColumnName="DestinationCountry" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="HealthCondition" ColumnName="HealthCondition" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getHealthInsurancePendingRequest" FunctionName="InsuranceManagementSystemDbModel.Store.sp_getHealthInsurancePendingRequest">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="InsuranceManagementSystemDbModel.sp_getHealthInsurancePendingRequest_Result">
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="PurchaseId" ColumnName="PurchaseId" />
+          <ScalarProperty Name="InsuranceType" ColumnName="InsuranceType" />
+          <ScalarProperty Name="SubType" ColumnName="SubType" />
+          <ScalarProperty Name="DateOfPurchase" ColumnName="DateOfPurchase" />
+          <ScalarProperty Name="HealthCondition" ColumnName="HealthCondition" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="PlanDuration" ColumnName="PlanDuration" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getPensionPlanPendingRequest" FunctionName="InsuranceManagementSystemDbModel.Store.sp_getPensionPlanPendingRequest">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="InsuranceManagementSystemDbModel.sp_getPensionPlanPendingRequest_Result">
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="PurchaseId" ColumnName="PurchaseId" />
+          <ScalarProperty Name="InsuranceType" ColumnName="InsuranceType" />
+          <ScalarProperty Name="SubType" ColumnName="SubType" />
+          <ScalarProperty Name="DateOfPurchase" ColumnName="DateOfPurchase" />
+          <ScalarProperty Name="MonthlyIncome" ColumnName="MonthlyIncome" />
+          <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+          <ScalarProperty Name="PensionStartYear" ColumnName="PensionStartYear" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="PensionAmount" ColumnName="PensionAmount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

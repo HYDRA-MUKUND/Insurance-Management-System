@@ -1,0 +1,123 @@
+﻿@model MiniProject_InsuranceManagementSystem.Models.HomeInsurance
+
+@{
+    ViewBag.Title = "HomeInsurance";
+}
+
+<style>
+
+    body {
+        background-color: darkgray;
+    }
+
+    hr {
+        color: ghostwhite;
+    }
+
+
+    h1 {
+        color: darkslateblue;
+        font-weight: bold;
+        font-family: 'Segoe UI',Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    option {
+        background-color: white;
+        color: black;
+    }
+
+    select {
+        /*        background-color: #22a344;
+    */ background-color: darkslateblue;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        color: white;
+        border-color: none;
+    }
+</style>
+
+<button class="btn btn-primary" style="margin-top:2rem;margin-bottom:1rem;margin-left:2rem;">
+    @Html.ActionLink("《 Go Back", "ChooseInsurance", new { area = "" }, new { @style = "font-size:14px; color:white;" })
+</button>
+
+<hr>
+<h1>Apply for Home Insurance</h1>
+<hr style="margin-bottom:3rem">
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div style="border-radius: 1rem; box-shadow: 0px 7px 35px -4px black; background-color: white; margin: 1rem 30rem; padding: 2rem 0; ">
+
+        <div class="form-horizontal" style="margin-left:4rem">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+            <div class="form-group" style="margin-left:6rem;margin-top:2rem">
+                <div class="col-md-10">
+                    <label for="building-type" class="form-label">Building Type : </label>
+                    <select name="building-type" id="building-type"  class="custom-list-items">
+                        <option value="Rental Property">Rental Property</option>
+                        <option value="HomeOwner Property">HomeOwner Property</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-left: 5rem; margin-bottom: 0">
+                @Html.LabelFor(model => model.FloorArea, htmlAttributes: new { @class = "control-label col-md-4", @style = "margin-left:-3.5rem;" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FloorArea, new { htmlAttributes = new { @class = "form-control", required = "required", placeholder = "Enter FloorArea (sqft)",min="100",max="100000000", @style = "margin-left:1rem; height:4rem;" } })
+                    @Html.ValidationMessageFor(model => model.FloorArea, "", new { @class = "text-danger", @style = "margin-left:1rem;font-weight:bold" })
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-left: 5rem; margin-bottom: 0">
+                @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-3", @style = "margin-left:-3.5rem;" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control", required = "required", placeholder = "Enter City Name", @style = "margin-left:1rem; height:4rem;" } })
+                    @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger", @style = "margin-left:1rem;font-weight:bold" })
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-left: 5rem; margin-bottom: 0">
+                @Html.LabelFor(model => model.HouseNumber, htmlAttributes: new { @class = "control-label col-md-5", @style = "margin-left:-4rem;" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.HouseNumber, new { htmlAttributes = new { @class = "form-control", required = "required", placeholder = "Enter HouseNumber", @style = "margin-left:1rem; height:4rem;" } })
+                    @Html.ValidationMessageFor(model => model.HouseNumber, "", new { @class = "text-danger", @style = "margin-left:1rem;font-weight:bold" })
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-left:5rem;margin-bottom:0">
+                @Html.LabelFor(model => model.Valuation, htmlAttributes: new { @class = "control-label col-md-4", @style = "margin-left:-3.5rem;" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Valuation, new { htmlAttributes = new { @class = "form-control", @Value = "", required = "required", min="1000",max= "9999999999999", placeholder = "Enter Valuation (Rs)", @style = "margin-left:1rem; height:4rem;" } })
+                    @Html.ValidationMessageFor(model => model.Valuation, "", new { @class = "text-danger", @style = "margin-left:1rem;font-weight:bold" })
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-left: 5rem; margin-bottom: 1rem">
+                @Html.LabelFor(model => model.PlanDuration, htmlAttributes: new { @class = "control-label col-md-4", @style = "margin-left:-1rem" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.PlanDuration, new { htmlAttributes = new { @class = "form-control",@Value="", required = "required", min = "1", max = "100", placeholder = "Enter PlanDuration (Years)", @style = "margin-left:1rem; height:4rem;" } })
+                    @Html.ValidationMessageFor(model => model.PlanDuration, "", new { @class = "text-danger", @style = "margin-left:1rem;font-weight:bold" })
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-left:5rem">
+                <div class="col-md-offset-2 col-md-10" style="margin-left:1rem;">
+                    <input type="submit" value="Submit" class="btn btn-success btn-lg btn-block" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+

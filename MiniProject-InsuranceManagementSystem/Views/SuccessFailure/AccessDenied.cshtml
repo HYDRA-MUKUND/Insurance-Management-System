@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "AccessDenied";
+}
+
+<script>
+
+    window.onload = function () {
+               swal('Access Denied !', '', 'error', { button: 'Goto Login ' })
+                   .then((value) => { window.location.href = '/LoginRegister/LoginUser' });
+            }
+
+</script>
+
+

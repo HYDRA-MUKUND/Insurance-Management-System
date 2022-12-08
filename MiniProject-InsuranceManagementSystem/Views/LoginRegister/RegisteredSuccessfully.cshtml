@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "RegisteredSuccessfully";
+}
+
+<style>
+    body {
+        background-color: dimgrey;
+    }
+</style>
+
+<script>
+    window.onload = function () {
+               swal('Registered Successfully!', '', 'success', { button: 'Goto Login' })
+                   .then((value) => { window.location.href = '/LoginRegister/LoginUser' });
+            }
+        
+    </script>

@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "SuccessfullyAddedPolicyAlert";
+}
+<style>
+    body {
+        background-color: dimgrey;
+    }
+</style>
+
+
+<script>
+    window.onload = function () {
+               swal('Policy Added !', '', 'success', { button: 'OK' })
+                   .then((value) => { window.location.href = '/Agent/AgentProfilePage' });
+            }
+
+</script>

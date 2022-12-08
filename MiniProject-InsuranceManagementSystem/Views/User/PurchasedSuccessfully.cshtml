@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "PurchasedSuccessfully";
+}
+
+<style>
+    body {
+        background-color:dimgrey;
+    }
+</style>
+
+<script>
+    window.onload = function () {
+               swal('Purchased Successfully!', '', 'success', { button: 'Back to Profile' })
+                   .then((value) => { window.location.href = '/User/UserProfilePage' });
+            }
+
+</script>
+
+

@@ -1,0 +1,154 @@
+﻿@model MiniProject_InsuranceManagementSystem.Models.Insurance
+
+@{
+    ViewBag.Title = "AddInsurance";
+}
+
+
+<style>
+
+    body {
+        background-color: darkgray;
+    }
+
+
+    h1 {
+        color: darkslateblue;
+        font-weight: bold;
+        font-family: 'Segoe UI',Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+    }
+
+    hr {
+        color: ghostwhite;
+    }
+
+    select {
+        background-color: darkslateblue; 
+        padding: 1rem;
+        border-radius: 0.5rem;
+        color: white;
+        border-color: none;
+    }
+
+    #amount,#filterparameter,#insuranceprovider,#yearlypremium {
+        padding: 2rem;
+        font-size:14px;
+    }
+
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+
+</style>
+
+<button class="btn btn-primary" style="margin-top:2rem;margin-bottom:1rem;margin-left:1rem;">
+    @Html.ActionLink("《 Back to Profile", "AgentProfilePage", new { area = "" }, new { @style = "font-size:14px; color:white;" })
+</button>
+
+<hr>
+<h1>Fill the Policy details</h1>
+<hr style="margin-bottom:3rem">
+
+    @using (Html.BeginForm("AddInsurance", "Agent"))
+    {
+
+        <div style="border-radius: 1rem; box-shadow: 0px 7px 35px -4px black; background-color: white; margin: 1rem 30rem; padding: 2rem 0; ">
+
+            <div style="margin:2rem;margin-left: 10rem">
+                <label for="insurances" class="form-label">Choose Insurance : </label>
+                <select name="insurances" class="custom-list-items" id="insurances" onchange="selectListOptionChanger()">
+                    <option value="Life Insurance">Life Insurance</option>
+                    <option value="Pension Plans">Pension Plans</option>
+                    <option value="Health Insurance">Health Insurance</option>
+                    <option value="Home Insurance">Home Insurance</option>
+                    <option value="Automobile Insurance">Automobile Insurance</option>
+                    <option value="Travel Insurance">Travel Insurance</option>
+
+                </select>
+            </div>
+
+            <div style="margin-bottom:1.4rem; margin-left:11rem;">
+                <label for="subtype" class="form-label">Insurance For : </label>
+                <select name="subtype" id="subtype">
+                    <option value="Term Life">Term Life</option>
+                    <option value="Whole Life">Whole Life</option>
+                </select>
+            </div>
+            <div style="margin-bottom: 1.2rem; margin-left:11rem;">
+                <label for="amount" class="form-label">Coverage Amount  </label>
+                <input type="number" class="form-control" id="amount" name="amount" required placeholder="Enter Coverage amount (Rs)" min="1000" max="1000000000000000">
+            </div>
+            <div style="margin-bottom: 1.2rem; margin-left: 11rem;" class="yearly-premium">
+                <label for="yearlypremium" id="yearlypremiumlabel" class="form-label">Yearly Premium</label>
+                <input type="number" class="form-control" id="yearlypremium" name="yearlypremium" required placeholder="Enter yearly premium (Rs)" min="100" max="1000000000000000">
+            </div>
+            
+            <div style="margin-bottom: 1.2rem; margin-left: 11rem;">
+                <label for="insuranceprovider" class="form-label">Insurance Provider</label>
+                <input type="text" class="form-control" id="insuranceprovider" name="insuranceprovider" required placeholder="Insurance Provider" minlength="2">
+            </div>
+            <div style="margin-bottom:2rem;margin-left:11rem;">
+                <label for="filterparameter" class="form-label">Additional Info </label>
+                <input type="text" class="form-control" id="filterparameter" name="filterparameter" placeholder="Optional">
+            </div>
+            <div style="margin-left:11rem;margin-bottom:1rem">
+                <input type="submit" class="btn btn-primary btn-block" style="margin-top:1.4rem; height:4.2rem;font-size:medium" value="Add Policy" />
+            </div>
+            </div>
+            }
+
+<script>
+
+    function selectListOptionChanger() {
+
+        let selectListItem = document.querySelector('#insurances').value;
+        document.querySelector('#yearlypremium').placeholder = 'Enter yearly premium(Rs.)';
+        document.querySelector('#yearlypremiumlabel').textContent = 'Yearly Premium';
+        document.querySelector('#amount').disabled = '';
+        document.querySelector('#yearlypremium').disabled = '';
+
+
+        let items;
+
+        if (selectListItem == 'Travel Insurance') {
+            items = ['Healthy Person', 'Diseased Person'];
+            document.querySelector('#yearlypremium').placeholder = 'Enter premium (Rs.)';
+            document.querySelector('#yearlypremiumlabel').textContent = 'Premium';
+
+        }
+
+        else if (selectListItem == 'Home Insurance') {
+            items = ['Rental Property', 'HomeOwner Property'];
+        }
+
+        else if (selectListItem == 'Automobile Insurance') {
+            items = ['Bike', 'Car'];
+        }
+        else if (selectListItem == 'Life Insurance') {
+            items = ['Whole Life', 'Term Life'];
+        }
+        else if (selectListItem == 'Health Insurance') {
+            items = ['Healthy Person', 'Diseased Person'];
+        }
+
+        else if (selectListItem == 'Pension Plans') {
+            items = ['Government Servent', 'Non-Government Servent'];
+            document.querySelector('#amount').disabled = 'disabled';
+            document.querySelector('#yearlypremium').disabled = 'disabled';
+
+        }
+
+        var options;
+        for (var item of items) {
+            options += "<option>" + item + "</option>"
+        }
+        document.getElementById("subtype").innerHTML = options;
+    }
+</script>
+        
+

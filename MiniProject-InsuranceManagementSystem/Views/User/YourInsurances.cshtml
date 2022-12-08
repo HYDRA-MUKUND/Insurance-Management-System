@@ -1,0 +1,121 @@
+﻿@model IEnumerable<MiniProject_InsuranceManagementSystem.Models.sp_getYourInsurances_Result>
+
+@{
+    ViewBag.Title = "YourInsurances";
+}
+
+<style>
+
+    body {
+        background-color: darkgray;
+    }
+
+    h1, h2 {
+        color: whitesmoke;
+        font-weight: bold;
+        font-family: 'Segoe UI',Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+    }
+
+    h2 {
+        color: darkslateblue;
+    }
+
+
+    hr {
+        color: ghostwhite;
+    }
+
+    .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+        background-color: #002d72;
+        color: white;
+    }
+</style>
+
+
+<button class="btn btn-primary" style="margin-top:2rem;margin-bottom:1rem;margin-left:1rem;">
+    @Html.ActionLink("《 Back to Profile", "UserProfilePage", new { area = "" }, new { @style = "font-size:14px; color:white;" })
+</button>
+<hr>
+<h1>Your Insurances</h1>
+<hr style="margin-bottom:3rem;">
+
+<table class="table table-striped table-hover" style="box-shadow: 0px 7px 41px -4px black; margin-top:4rem ">
+    <thead style="background-color: #002d72; color:whitesmoke; font-size:medium">
+
+        <tr>
+            <th style="padding: 2rem">
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th style="padding: 2rem">
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th style="padding: 2rem">
+                Mobile Number
+            </th>
+            <th style="padding: 2rem">
+                Insurance Name
+            </th>
+
+            <th style="padding: 2rem">
+                Insurance For
+            </th>
+            <th style="padding: 2rem">
+                Purchased Date
+            </th>
+
+            <th style="padding: 2rem">
+                Approval Status
+            </th>
+
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr style="margin:1rem;">
+                <td style="padding:2rem;">
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td style="padding: 2rem;">
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td style="padding: 2rem;">
+                    @Html.DisplayFor(modelItem => item.MobileNumber)
+                </td>
+                <td style="padding: 2rem;">
+                    @Html.DisplayFor(modelItem => item.InsuranceType)
+                </td>
+                <td style="padding: 2rem;">
+                    @Html.DisplayFor(modelItem => item.SubType)
+                </td>
+                <td style="padding: 2rem;">
+                    @item.DateOfPurchase.Value.ToShortDateString()
+                </td>
+
+                <td style="padding: 2rem;">
+                    @if (item.ApprovalStatus.Equals("Pending"))
+                    {
+                        <p class="btn-block btn-primary btn" style="padding:0.8rem">Pending</p>
+                    }
+                    else if (item.ApprovalStatus.Equals("Rejected"))
+                    {
+                        <p class="btn-block btn-danger btn" style="padding:0.8rem">Rejected</p>
+                    }
+                    else
+                    {
+                        <p class="btn-block btn-success btn" style="padding:0.8rem">&#10004 Approved</p>
+                    }
+                </td>
+
+            </tr>
+        </tbody>
+    }
+
+</table>
+
+
+@if(Model == null)
+{
+    <hr><h2> No record found</h2><hr>
+}

@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Insurance Management System</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @*https://www.passionateinmarketing.com/wp-content/uploads/2021/07/life_insurance_190529.jpg*@
+
+    <style>
+        option {
+            background-color: white;
+            color: black;
+        }
+        #nav-logout:hover{
+            cursor:pointer;
+        }
+
+    </style>
+
+    <script>
+        window.onload = function () {
+            document.getElementById('CurrentRoleId').style.visibility = "hidden";
+            document.getElementById('nav-logout').style.visibility = "hidden";
+            document.getElementById('nav-profile').style.visibility = "hidden";
+            document.getElementById('nav-firstname').style.visibility = "hidden";
+
+           }
+
+        function roleAssigner() {
+            var CurrentRole = document.getElementById('CurrentRole');
+            CurrentRole.value = document.getElementById('CurrentRoleId').value;
+        }
+
+
+    </script>
+
+</head>
+
+<body style="background-image: url(images/insurancebgimageh.jpg);background-repeat: no-repeat; background-size: cover; ">
+
+
+    <div class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <div class="container">
+            <img src="~/images/insurance.png" width="32" style="margin-right:1rem">
+            <div class="navbar-header">
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
+                </button>
+                @Html.ActionLink("Insurance Management System", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav" style="font-weight:600; background-color:aliceblue; border-radius:0.8rem;">
+                    <li>@Html.ActionLink("Login", "LoginUser", "LoginRegister", new { area = "" }, new { @style = "font-size:16px; color:black;" })</li>
+                    <li>@Html.ActionLink("Register", "Registration", "LoginRegister", new { area = "" }, new { @style = "font-size:16px; color:black;" })</li>
+                    <li>@Html.ActionLink("View Policies", "Index", "Visitor", new { area = "" }, new { @style = "font-size:16px; color:black;" })</li>
+                </ul>
+
+                <div>
+                    <select onchange="roleAssigner()" style="padding: 1rem; margin-left: 2rem; background-color: #232325; border-color:#221f1f; color: white; font-size: medium; font-weight: bold" id="CurrentRoleId">
+                        @*<option value="1">Register as Admin</option>*@
+                        <option value="3"> Register as Agent</option>
+                        <option selected value="2"> Register as User</option>
+                    </select>
+                </div>
+
+            </div>
+            <div style="margin-right:-12rem">
+                <img id="nav-logout" src="~/images/logoutT.png" width="32" />
+            </div>
+            <div style="margin-right:-2rem;margin-top:0.2rem;text-align:center">
+                <img id="nav-profile" src="~/images/profileicon.png" width="30"/>
+                @if (@Session["FirstName"] != null)
+                {
+                <p id="nav-firstname" style="color:white;margin-top:0.2rem;margin-bottom:0">@Session["FirstName"].ToString()</p>
+                }
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <footer style="margin-top:19rem; margin-left:-9rem;color:whitesmoke">
+            <p>&copy; @DateTime.Now.Year - All Rights Reserved</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    
+</body>
+</html>

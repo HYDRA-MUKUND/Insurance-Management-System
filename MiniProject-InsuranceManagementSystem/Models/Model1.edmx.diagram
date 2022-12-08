@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="153df91edb7044e08584522e1c80979b" Name="Diagram1" ZoomLevel="53">
+        <EntityTypeShape EntityType="InsuranceManagementSystemDbModel.AutomobileInsurance" Width="1.5" PointX="7.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InsuranceManagementSystemDbModel.Customer" Width="1.5" PointX="5.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="InsuranceManagementSystemDbModel.HealthInsurance" Width="1.5" PointX="7.5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="InsuranceManagementSystemDbModel.HomeInsurance" Width="1.5" PointX="7.5" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="InsuranceManagementSystemDbModel.Insurance" Width="1.5" PointX="5.25" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InsuranceManagementSystemDbModel.LifeInsurance" Width="1.5" PointX="7.5" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InsuranceManagementSystemDbModel.PensionPlan" Width="1.5" PointX="7.5" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InsuranceManagementSystemDbModel.Purchased" Width="1.5" PointX="10.5" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InsuranceManagementSystemDbModel.Role" Width="1.5" PointX="0.75" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InsuranceManagementSystemDbModel.TravelInsurance" Width="1.5" PointX="7.5" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="InsuranceManagementSystemDbModel.User" Width="1.5" PointX="3" PointY="14.125" IsExpanded="true" />
+        <AssociationConnector Association="InsuranceManagementSystemDbModel.FK__Automobil__Custo__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="InsuranceManagementSystemDbModel.FK__Customers__UserI__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="InsuranceManagementSystemDbModel.FK__HealthIns__Custo__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="InsuranceManagementSystemDbModel.FK__HomeInsur__Custo__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="InsuranceManagementSystemDbModel.FK__LifeInsur__Custo__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="InsuranceManagementSystemDbModel.FK__PensionPl__Custo__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="InsuranceManagementSystemDbModel.FK__Purchased__Custo__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="InsuranceManagementSystemDbModel.FK__TravelIns__Custo__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="InsuranceManagementSystemDbModel.FK__Insurance__UserI__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="InsuranceManagementSystemDbModel.FK__Purchased__Insur__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="InsuranceManagementSystemDbModel.FK__Users__RoleId__267ABA7A" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

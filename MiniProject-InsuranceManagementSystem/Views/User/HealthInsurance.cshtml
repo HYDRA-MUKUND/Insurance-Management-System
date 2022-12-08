@@ -1,0 +1,107 @@
+﻿
+
+@{
+    ViewBag.Title = "HealthInsurance";
+}
+
+
+
+<style>
+
+    body {
+        background-color: darkgray;
+    }
+
+    hr {
+        color: ghostwhite;
+    }
+
+
+    h1 {
+        color: darkslateblue;
+        font-weight: bold;
+        font-family: 'Segoe UI',Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+
+    option {
+        background-color: white;
+        color: black;
+    }
+
+    select {
+        /*        background-color: #22a344;
+    */ background-color: darkslateblue;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        color: white;
+        border-color: none;
+    }
+</style>
+
+<button class="btn btn-primary" style="margin-top:2rem;margin-bottom:1rem;margin-left:2rem;">
+    @Html.ActionLink("《 Go Back", "ChooseInsurance", new { area = "" }, new { @style = "font-size:14px; color:white;" })
+</button>
+
+<hr>
+<h1>Apply for Health Insurance</h1>
+<hr style="margin-bottom:3rem">
+
+@using (Html.BeginForm())
+{
+
+    <div style="border-radius: 1rem; box-shadow: 0px 7px 35px -4px black; background-color: white; margin: 1rem 30rem; padding: 2rem 0; ">
+
+        <div class="form-horizontal" style="margin-left:4rem">
+
+
+            <div class="form-group" style="margin-left:6rem;margin-top:2rem">
+                <div class="col-md-10">
+                    <label for="health-condition" class="form-label"> Suffering from any Disease : </label>
+                    <select name="health-condition" id="health-condition">
+                        <option value="Diseased Person">Yes</option>
+                        <option value="Healthy Person" selected>No</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group" style="margin-left:7rem">
+
+                <label class="form-label" for="age"> Age</label>
+                <input type="number" id="age" name="age" class="form-control form-control-lg" required placeholder="Enter your age (years)" min="1" max="150"/>
+
+            </div>
+
+
+            <div class="form-group" style="margin-left:7rem">
+
+                <label class="form-label" for="gender">Gender :  </label>
+                <input type="radio" name="gender" checked  value="Male" style="margin-left:0.4rem;"/> <span style="font-weight:bold;color:darkblue;">Male</span><br>
+                <input type="radio"  name="gender"  value="Female" style="margin-left:6.5rem"/> <span style="font-weight:bold;color:darkblue">Female</span>
+
+            </div>
+
+            <div class="form-group" style="margin-left:7rem">
+
+                <label class="form-label" for="planDuration">Plan Duration</label>
+                <input type="number" id="planDuration" name="planDuration" class="form-control form-control-lg" required min="1" max="100" placeholder="Enter plan duration (years)"/>
+
+            </div>
+
+            <div class="form-group" style="margin-left:4.5rem">
+                <div class="col-md-offset-2 col-md-10" style="margin-left:1rem;">
+                    <input type="submit" value="Submit" class="btn btn-success btn-lg btn-block" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+
